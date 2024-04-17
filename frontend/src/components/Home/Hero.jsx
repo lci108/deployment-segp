@@ -17,8 +17,8 @@ export default function Hero() {
 
   useEffect(() => {
     const handleMouseMove = (event) => {
-      setMouseX(event.clientX); // Horizontal position of the mouse
-      setMouseY(event.clientY); // Vertical position of the mouse
+      setMouseX(event.clientX); 
+      setMouseY(event.clientY); 
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -75,7 +75,7 @@ export default function Hero() {
             </p>
             <Button
         borderRadius="1.75rem"
-        className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+        className="bg-white text-black border-neutral-200 dark:border-slate-800 font-medium"
         onClick={handleNavigation}
 
       >

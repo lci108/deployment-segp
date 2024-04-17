@@ -121,7 +121,7 @@ const Result = () => {
         </div>
         {loading && <p className="text-xl mt-8">Loading prediction...</p>}
         {!loading && error && (
-          <p className="text-xl mt-8 text-red-500">{error}</p>
+          <p className="text-4xl my-16 font-bold text-red-500 shadow-lg">{error}</p>
         )}
         {!loading && prediction && (
           <PredictionResult result={prediction} className="mt-8" />
