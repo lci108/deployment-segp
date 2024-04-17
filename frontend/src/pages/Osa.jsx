@@ -49,7 +49,7 @@ const Osa = () => {
           {" "}
           <div className="items-center pr-20 z-10">
             {" "}
-            <p className="font-bold text-5xl lg:text-6xl text-default-blue-700">
+            <p className="pl-5 font-bold text-5xl lg:text-6xl text-default-blue-700">
               About <br></br>
               <span className="text-default-blue-500">O</span>bstructive{" "}
               <span className="text-default-blue-500">S</span>leep{" "}
@@ -60,9 +60,9 @@ const Osa = () => {
             <img src={osaImg} alt="Osa" className="rounded-lg -mb-40 ml-12" />
           </div>
         </div>
-        <div className="relative grid grid-cols-1  gap-y-10 md:gap-y-20 lg:gap-y-72 px-8 sm:px-16 md:px-24 lg:px-32 py-10 md:py-20 bg-gray-100 rounded-2xl">
+        <div className="relative grid grid-cols-1 mt-5 gap-y-10 md:gap-y-20 lg:gap-y-72 px-8 sm:px-16 md:px-24 lg:px-32 py-10 md:py-20 bg-gray-100 rounded-2xl">
           <div>
-            <p className="font-bold text-3xl lg:text-4xl ">What is OSA?</p>
+            <p className="font-bold text-3xl lg:text-4xl  ">What is OSA?</p>
             <hr className="my-8 border-1 border-black w-full" />
             <div className="grid grid-cols-1 py-7 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
               <p className="font-medium text-lg lg:text-xl">

@@ -140,14 +140,14 @@ After choosing the appropriate machine learning algorithms for our OSA predictio
   return (
     <>
       <TracingBeam className="py-6">
-        <div className="max-w-4xl mx-auto antialiased pt-4 relative">
+        <div className="max-w-4xl mx-auto antialiased pt-4 relative px-4">
           {dummyContent.map((item, index) => (
             <div key={`content-${index}`} className="mb-10">
-              <h2 className="border border-default-blue-500 text-default-blue-500 dark rounded-md text-2xl w-fit  my-8 font-light p-4">
+              <h2 className="border border-default-blue-500 text-default-blue-500 dark rounded-md text-2xl w-fit  my-8 font-bold p-4">
                 {item.badge}
               </h2>
 
-              <p className="text-3xl text-default-blue-700 dark text-mb-4 font-bold">
+              <p className="text-3xl text-default-blue-700 dark text-mb-4 font-bold mb-5">
                 {item.title}
               </p>
 
@@ -156,8 +156,8 @@ After choosing the appropriate machine learning algorithms for our OSA predictio
                   <img
                     src={item.image}
                     alt="blog thumbnail"
-                    className="rounded-lg mb-10 object-cover p-16"
-                    style={{ width: "100%", height: "auto" }}
+                    className="rounded-lg mb-6 object-cover lg:p-16"
+                    style={{ height: "100%" }}
                   />
                 )}
                 {item.description}
@@ -166,7 +166,7 @@ After choosing the appropriate machine learning algorithms for our OSA predictio
           ))}
         </div>
       </TracingBeam>
-      <div className="mx-auto max-w-screen-2xl grid grid-cols-3 grid-rows-2 gap-4  pb-32 relative bg-gray-300 md:hidden">
+      <div className="mx-auto max-w-screen-2xl grid grid-cols-3 grid-rows-2 gap-4 px-4 pb-32 relative bg-gray-300 max-md:hidden">
         <div className="col-span-3 row-span-1 flex justify-center items-center">
           <TypewriterEffectSmooth words={words} />
         </div>
@@ -199,9 +199,14 @@ After choosing the appropriate machine learning algorithms for our OSA predictio
           </motion.div>
         </div>
       </div>
-      <div className="max-md:hidden">
-        Our prediction model is built with:
-        <img src="" alt="" /><img src="" alt="" /><img src="" alt="" />
+      <div className="md:hidden pb-16">
+        <h2 className="text-lg font-bold px-2 mb-5 border-t-2 mt-4">Our prediction model is built with:</h2>
+        <div className="flex flex-wrap gap-2 px-4">
+          <img src={pythonImg} alt="python" style={{ maxHeight: "60px" }} />
+          <img src={pandaImg} alt="pandas" style={{ maxHeight: "60px" }} />
+          <img src={sckitImg} alt="scikitlearn" style={{ maxHeight: "60px" }} />
+        </div>
+        
       </div>
       <div></div>
     </>

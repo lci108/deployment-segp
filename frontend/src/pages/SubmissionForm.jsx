@@ -48,11 +48,11 @@ const SubmissionForm = () => {
   return (
     <>
  
-    <form onSubmit={handleSubmit}>
-      <input type="text" className="font-medium text-lg lg:text-xl pb-2 border border-black rounded" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-      <input type="email" className="font-medium text-lg lg:text-xl pb-2 border border-black rounded" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-      <input type="tel"  className="font-medium text-lg lg:text-xl pb-2 border border-black rounded" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
-      <select name="livingState" className="font-medium text-lg lg:text-xl pb-2 border border-black rounded " value={formData.livingState} onChange={handleChange} required>
+    <form onSubmit={handleSubmit} className='w-full flex flex-col gap-2 lg:gap-4 p-4 lg:px-8 lg:py-12 bg-gray-100 rounded-lg'>
+      <input type="text" className="font-medium text-lg lg:text-xl pl-2 pb-2 border border-gray-400 rounded" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+      <input type="email" className="font-medium text-lg lg:text-xl pl-2 pb-2 border border-gray-400 rounded" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+      <input type="tel"  className="font-medium text-lg lg:text-xl pl-2 pb-2 border border-gray-400 rounded" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
+      <select name="livingState" className="font-medium text-lg lg:text-xl pl-2 pb-2 border border-gray-400 rounded " value={formData.livingState} onChange={handleChange} required>
         <option value="" disabled>Select your state</option>
           <option value="Selangor">Selangor</option>
           <option value="Johor">Johor</option>

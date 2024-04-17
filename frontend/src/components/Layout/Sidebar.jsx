@@ -14,14 +14,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       <div className="absolute top-4 right-4 pt-8 ">
         <AiOutlineClose onClick={toggleSidebar} className="text-4xl cursor-pointer mr-6" />
       </div>
+      <NavLink onClick={toggleSidebar} to="/osa" className='p-4 w-2/3' style={({ isActive }) => isActive ? activeStyles : undefined}>
+        About OSA
+      </NavLink>
       <NavLink onClick={toggleSidebar} to="/about" className='p-4 w-2/3' style={({ isActive }) => isActive ? activeStyles : undefined}>
         About Project
       </NavLink>
       <NavLink onClick={toggleSidebar} to="/model" className='p-4 w-2/3' style={({ isActive }) => isActive ? activeStyles : undefined}>
         Prediction Model
-      </NavLink>
-      <NavLink onClick={toggleSidebar} to="/team" className='p-4 w-2/3' style={({ isActive }) => isActive ? activeStyles : undefined}>
-        Our Team
       </NavLink>
       {/* Add other links as needed */}
     </div>
