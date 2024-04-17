@@ -6,12 +6,14 @@ const app = express();
 app.use(bodyParser.json());
 
 app.post('/predict', (req, res) => {
-    const pythonProcess = spawn('python', ['scripts/userInput.py', JSON.stringify(req.body)]);
-
+    const pythonProcess = spawn('python3', ['scripts/userInput.py', JSON.stringify(req.body)]);
+    console.log('Python script started');
+    
     let pythonData = '';
     pythonProcess.stdout.on('data', (data) => {
         pythonData += data.toString();
     });
+    console.log(JSON.stringify(req.body));
 
     pythonProcess.stderr.on('data', (data) => {
         console.error(`stderr: ${data}`);

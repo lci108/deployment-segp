@@ -29,10 +29,8 @@ const SubmissionForm = () => {
       return;
     }
     try {
-      // Add a new document with a generated ID
       await addDoc(collection(db, "submissions"), formData);
       console.log("Document successfully written!");
-      // Clear form data
       setFormData({
         name: '',
         email: '',

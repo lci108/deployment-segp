@@ -12,8 +12,8 @@ try:
 
     # Load models with error handling
     try:
-        pn_model_path = os.path.join(dir_path, '../models/model_pn.sav')
-        sev_model_path = os.path.join(dir_path, '../models/model_sev.sav')
+        pn_model_path = os.path.join(dir_path, './models/model_pn.sav')
+        sev_model_path = os.path.join(dir_path, './models/model_sev.sav')
 
         load_pn = joblib.load(pn_model_path)
         load_sev = joblib.load(sev_model_path)

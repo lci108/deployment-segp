@@ -166,7 +166,7 @@ After choosing the appropriate machine learning algorithms for our OSA predictio
           ))}
         </div>
       </TracingBeam>
-      <div className="mx-auto max-w-screen-2xl grid grid-cols-3 grid-rows-2 gap-4  pb-32 relative bg-gray-100">
+      <div className="mx-auto max-w-screen-2xl grid grid-cols-3 grid-rows-2 gap-4  pb-32 relative bg-gray-300 md:hidden">
         <div className="col-span-3 row-span-1 flex justify-center items-center">
           <TypewriterEffectSmooth words={words} />
         </div>
@@ -198,6 +198,10 @@ After choosing the appropriate machine learning algorithms for our OSA predictio
             </DirectionAwareHover>
           </motion.div>
         </div>
+      </div>
+      <div className="max-md:hidden">
+        Our prediction model is built with:
+        <img src="" alt="" /><img src="" alt="" /><img src="" alt="" />
       </div>
       <div></div>
     </>

@@ -7,6 +7,8 @@ import "./Hero.css";
 import { Button } from "../ui/moving-border"; 
 import svgImg from "../../assets/svg.png";
 import widgetImg from "../../assets/widget.png";
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function Hero() {
@@ -40,6 +42,14 @@ export default function Hero() {
       },
     },
   };
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    // Programmatically navigate to the 'questionnaire' route
+    navigate('/questionnaire');
+  };
+
+  
 
   return (
     <>
@@ -64,9 +74,11 @@ export default function Hero() {
               diagnoses Obstructive Sleep Apnea. Get your results in minutes.
             </p>
             <Button
-              borderRadius="2rem"
-              className=" bg-slate-900 text-white border-slate-900"
-            >
+        borderRadius="1.75rem"
+        className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+        onClick={handleNavigation}
+
+      >
               TEST NOW ➜
             </Button>
           </div>

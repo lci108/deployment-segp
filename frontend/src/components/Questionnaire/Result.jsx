@@ -73,7 +73,7 @@ const Result = () => {
         </motion.h1>
       </LampContainer>
       
-      <div className="flex flex-col items-center justify-center sm:h-screen w-screen bg-slate-950 text-slate-300">
+      <div className="flex flex-col items-center justify-center sm:h-screen w-screen bg-slate-950 text-slate-300 pb-12">
       <h2 className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl font-medium tracking-tight text-transparent md:text-4xl">
           User Inputs:
         </h2>
@@ -129,7 +129,7 @@ const Result = () => {
 
         <Link
           to="/"
-          className="bg-slate-300 text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 mt-8"
+          className="bg-slate-300 text-slate-950 font-bold rounded py-2 my-4 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 mt-8"
         >
           Back to home
         </Link>

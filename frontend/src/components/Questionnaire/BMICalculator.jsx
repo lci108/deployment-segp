@@ -30,7 +30,7 @@ const BMICalculator = () => {
       };
 
     return (
-        <div className="flex flex-col items-center justify-center sm:h-screen w-screen bg-slate-950 text-slate-300 p-4">
+        <div className="flex flex-col items-center justify-center h-screen w-screen bg-slate-950 text-slate-300 p-4">
             <p className="text-5xl mb-8">BMI Calculator</p>
             <input
                 type="number"

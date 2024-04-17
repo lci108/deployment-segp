@@ -1,19 +1,29 @@
-import joblib
+import pickle
 import os
 
-def load_model(model_path):
-    try:
-        model = joblib.load(model_path)
-        print(f"Model loaded successfully from {model_path}")
-        # Optionally, you can add more checks here to verify the model
-        return model
-    except Exception as e:
-        print(f"Failed to load model from {model_path}")
-        print(f"Error: {e}")
+# Get the directory of the current script
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
-if __name__ == "__main__":
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    pn_model_path = os.path.join(dir_path, '../models/model_sev.sav')
+# Define the paths to your model files (using relative paths)
+model_pn_path = os.path.join(dir_path, 'models', 'model_pn.pkl')
+model_sev_path = os.path.join(dir_path, 'models', 'model_sev.pkl')
 
-    # Attempt to load the model
-    load_model(pn_model_path)
+# Load and inspect the model PN
+try:
+    with open(model_pn_path, 'rb') as file:
+        model_pn = pickle.load(file)
+    print("Model PN loaded successfully:")
+    print(model_pn)
+except Exception as e:
+    print(f"Failed to load model PN from {model_pn_path}")
+    print(f"Error: {e}")
+
+# Load and inspect the model SEV
+try:
+    with open(model_sev_path, 'rb') as file:
+        model_sev = pickle.load(file)
+    print("Model SEV loaded successfully:")
+    print(model_sev)
+except Exception as e:
+    print(f"Failed to load model SEV from {model_sev_path}")
+    print(f"Error: {e}")
