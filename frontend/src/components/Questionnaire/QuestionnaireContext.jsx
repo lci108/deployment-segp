@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export const QuestionnaireContext = createContext();
 
@@ -13,8 +14,23 @@ export const QuestionnaireProvider = ({ children }) => {
     hasRetrognathia: null,
     hasMicrognathia: null,
   });
-  const [errors, setErrors] = useState({});
 
+  console.log(formData);
+
+  // Define an array of objects containing links and labels
+  const navLinks = [
+    { link: 'tonsil-size', label: '1', key: 'tonsilSize'},
+    { link: 'mallampati-score', label: '2', key: 'MP'},
+    { link: 'neck-circumference', label: '3', key: 'isNeckCircumferenceLargerThan40'},
+    { link: 'ess', label: '4', key: 'ESS'},
+    { link: 'bmi', label: '5', key: 'isMorbidlyObese'},
+    { link: 'has-posterior-pillar-webbing', label: '6', key: 'hasPosteriorPillarWebbing'},
+    { link: 'has-retrognathia', label: '7', key: 'hasRetrognathia'},
+    { link: 'has-micrognathia', label: '8', key: 'hasMicrognathia'}
+  ];
+
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
   const validateData = (newData) => {
     let newErrors = {};
 
@@ -66,8 +82,28 @@ export const QuestionnaireProvider = ({ children }) => {
     }
   };
 
+  const handleNavClick = (link) => {
+    return () => { 
+      navigate(`../${link}`);
+    };
+  }
   return (
     <QuestionnaireContext.Provider value={{ formData, updateFormData, errors }}>
+      {Object.values(formData).every(value => value !== null) ? <div className="flex bg-slate-950 py-4 w-full justify-center items-center gap-x-6"></div> : (
+        <div className="flex bg-cyan-500 py-4 w-full justify-center items-center gap-x-6 flex-wrap">
+          <div className="sm:block hidden absolute w-[420px] h-1 bg-white z-0"></div>
+          {/* Map over the navLinks array */}
+          {navLinks.map((navLink, index) => (
+            <button key={index} onClick={handleNavClick(navLink.link)} className="rounded-full bg-white w-[40px] h-10 flex items-center justify-center font-bold z-10 my-2">
+              {formData[navLink.key] !== null ? (
+                <div className="bg-green-500 w-3 h-3 rounded-full"></div> // Green empty button
+              ) : (
+                navLink.label // Number for navigation
+              )}
+            </button>
+          ))}
+        </div>
+      )}
       {children}
     </QuestionnaireContext.Provider>
   );
