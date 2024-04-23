@@ -10,23 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@onedoc/client": "^0.1.32",
-    "@onedoc/react-print": "^0.1.131",
+    "@radix-ui/react-alert-dialog": "^1.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
     "@react-google-maps/api": "^2.19.3",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "express": "^4.19.2",
     "firebase": "^10.10.0",
     "framer-motion": "^11.0.6",
     "leaflet": "^1.9.4",
+    "lucide-react": "^0.372.0",
     "ol": "^9.1.0",
     "postcss-nesting": "^12.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-leaflet": "^4.2.1",
-    "react-router-dom": "^6.18.0",
-    "react-scroll": "^1.9.0",
-    "recharts": "^2.12.5",
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {

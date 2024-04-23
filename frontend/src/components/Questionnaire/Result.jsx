@@ -73,7 +73,7 @@ const Result = () => {
         </motion.h1>
       </LampContainer>
       
-      <div className="flex flex-col items-center justify-center sm:h-screen w-screen bg-slate-950 text-slate-300 pb-12">
+      <div className="flex flex-col items-center justify-center w-screen bg-slate-950 text-slate-300 pb-12">
       <h2 className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-2xl font-medium tracking-tight text-transparent md:text-4xl">
           User Inputs:
         </h2>
