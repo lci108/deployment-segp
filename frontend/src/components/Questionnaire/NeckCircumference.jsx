@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const NeckCircumference = () => {
   const navigate = useNavigate();
   const { updateFormData } = useContext(QuestionnaireContext);
+  const { formData } = useContext(QuestionnaireContext);
   const isNeckCircumferenceLargerThan40 = ["true", "false"];
   const [isExiting, setIsExiting] = useState(false);
 
@@ -103,7 +104,8 @@ const NeckCircumference = () => {
                 {isNeckCircumferenceLargerThan40.map((value) => (
                   <button
                     key={value}
-                    className="bg-default-yellow text-cyan-500 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"
+                    className={`bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
+                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${value === formData.isNeckCircumferenceLargerThan40 ? 'border-black border-4' : ''}`}
                     onClick={() => handleNeckCircumferenceClick(value)}
                   >
                     {value}

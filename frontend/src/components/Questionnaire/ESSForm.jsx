@@ -1,10 +1,26 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { QuestionnaireContext } from './QuestionnaireContext';
+import { FaCircleInfo } from "react-icons/fa6";
+import {
+    AlertDialog,
+    AlertDialogPortal,
+    AlertDialogOverlay,
+    AlertDialogTrigger,
+    AlertDialogContent,
+    AlertDialogHeader,
+    AlertDialogFooter,
+    AlertDialogTitle,
+    AlertDialogDescription,
+    AlertDialogAction,
+    AlertDialogCancel,
+  } from '../ui/alertdialog';
 
 const ESSForm = () => {
+
     const navigate = useNavigate();
     const { updateFormData } = useContext(QuestionnaireContext);
+    const {formData} = useContext(QuestionnaireContext);
     const [essScores, setEssScores] = useState({
         reading: 0,
         tv: 0,
@@ -20,9 +36,11 @@ const ESSForm = () => {
         const { name, value } = event.target;
         const newValue = Math.min(3, Math.max(0, parseInt(value)));
         setEssScores({ ...essScores, [name]: newValue });
+        localStorage.setItem('scores', JSON.stringify(essScores));
     };
 
     const handleSubmit = () => {
+        setEssScores({ ...essScores});
         const totalScore = Object.values(essScores).reduce((acc, curr) => acc + curr, 0);
         updateFormData({ ESS: totalScore });
         navigate('../bmi');
@@ -43,11 +61,31 @@ const ESSForm = () => {
     ];
 
     return (
-        <div className='flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-300 p-4'>
+        <div className='flex flex-col items-center justify-center min-h-screen bg-slate-950 text-slate-300 p-4 lg:pt-24'>
             <div className="w-full max-w-md px-4 py-8 mx-auto">
                 <p className='text-3xl lg:text-4xl mb-6 text-center font-semibold'>The Epworth Sleepiness Scale</p>
-                <p className='mb-4 text-center text-sm lg:text-base'>How likely are you to doze off or fall asleep in the following situations?</p>
+                <p className='mb-4 text-center text-sm lg:text-base'>How likely are you to doze off or fall asleep in the following situations? (0-3)</p>
                 <ul className='mb-6 text-center text-sm lg:text-base'>
+                <AlertDialog>
+                    <AlertDialogTrigger className="text-center hover:text-white underline flex items-center justify-center gap-2 w-full text-xl"><FaCircleInfo/>More information</AlertDialogTrigger>
+                    <AlertDialogContent className='bg-gray-100'>
+                        <AlertDialogHeader>
+                            <AlertDialogTitle className='font-bold text-xl'>How sleepy are you?</AlertDialogTitle>
+                            <AlertDialogDescription>
+                                <p>How likely are your to doze off or fall asleep in the following situations? You should rate your chances of dozing off, not just feeling tired. Even if you have not done some of these things, try to determine how they would have affected you. For each situation, whether you would or would not have:</p><br />
+                                <ul className='text-base font-semibold'>
+                                    <li className='flex w-2/3 justify-between'><span>No chance of dozing</span><span>0</span></li>
+                                    <li className='flex w-2/3 justify-between'><span>Slight chance of dozing</span><span>1</span></li>
+                                    <li className='flex w-2/3 justify-between'><span>Moderate chance of dozing</span><span>2</span></li>
+                                    <li className='flex w-2/3 justify-between'><span>High chance of dozing</span><span>3</span></li>
+                                </ul>
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogCancel>OK</AlertDialogCancel>          
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
                     {/* Scoring indications */}
                 </ul>
                 <form onSubmit={handleSubmit} className='space-y-4'>

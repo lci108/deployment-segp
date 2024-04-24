@@ -7,6 +7,7 @@ import { QuestionnaireContext } from "./QuestionnaireContext";
 const MallampatiScore = () => {
   const navigate = useNavigate();
   const { updateFormData } = useContext(QuestionnaireContext);
+  const { formData } = useContext(QuestionnaireContext);
   const MPScores = [1, 2, 3, 4];
   const [isExiting, setIsExiting] = useState(false);
 
@@ -142,7 +143,8 @@ const MallampatiScore = () => {
                 {MPScores.map((score) => (
                   <button
                     key={score}
-                    className="bg-default-yellow text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-200 focus:ring-opacity-50"
+                    className={`bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
+                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${score === formData.MP ? 'border-cyan-400 border-4' : ''}`}
                     onClick={() => handleMPScoreClick(score)}
                   >
                     {score}

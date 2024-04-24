@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { QuestionnaireContext } from "./QuestionnaireContext";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 const TonsilSize = () => {
   const navigate = useNavigate();
   const { updateFormData } = useContext(QuestionnaireContext);
+  const { formData } = useContext(QuestionnaireContext);
   const tonsilSizes = [0, 1, 2, 3, 4];
 
   const [isExiting, setIsExiting] = useState(false);
@@ -120,13 +122,13 @@ const TonsilSize = () => {
               <div className="flex flex-wrap justify-start space-x-2 md:space-x-4">
                 {tonsilSizes.map((size) => (
                   <button
-                    key={size}
-                    className="bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
-                    transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"
-                    onClick={() => handleTonsilSizeClick(size)}
-                  >
-                    {size}
-                  </button>
+                  key={size}
+                  className={`bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
+                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${size === formData.tonsilSize ? 'border-black border-4' : ''}`}
+                  onClick={() => handleTonsilSizeClick(size)}
+                >
+                  {size}
+                </button>
                 ))}
               </div>
             </motion.div>
