@@ -16,6 +16,8 @@ const Result = () => {
     const getPrediction = async () => {
       setLoading(true);
       setError("");
+      console.log('Form Data:', formData);  // Log the formData to the console
+
       try {
         const response = await fetch("/predict", {
           method: "POST",
@@ -26,11 +28,12 @@ const Result = () => {
         });
 
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+          const errorDetail = await response.text();  // or response.json() if the server sends JSON
+          throw new Error(`HTTP error! status: ${response.status}, Detail: ${errorDetail}`);        }
 
         const result = await response.json();
         setPrediction(result);
+        console.log(result);
       } catch (error) {
         console.error("Error during prediction:", error);
         setError("Failed to get prediction.");

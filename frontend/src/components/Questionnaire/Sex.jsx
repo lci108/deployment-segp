@@ -1,19 +1,19 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import microngathiaImage from "../../assets/retro_micrognathia.jpeg";
+import sex from "../../assets/sex.png";
 import { QuestionnaireContext } from "./QuestionnaireContext";
 import { motion, AnimatePresence } from "framer-motion";
 
-const HasMicrongathia = () => {
+const Sex = () => {
   const navigate = useNavigate();
   const { updateFormData } = useContext(QuestionnaireContext);
   const [isExiting, setIsExiting] = useState(false);
 
-  const handleSelection = (hasMicrognathia) => {
+  const handleSelection = (Sex) => {
     setIsExiting(true); // Trigger exit animation
-    updateFormData({ hasMicrognathia });
+    updateFormData({Sex});
     setTimeout(() => {
-      navigate("../has-Diabetes");
+      navigate("../result");
     }, 500);
   };
   const leftDivVariants = {
@@ -69,7 +69,7 @@ const HasMicrongathia = () => {
     },
   };
   const handleBackClick = () => {
-    navigate("../has-retrognathia");
+    navigate("../has-Diabetes");
   };
 
   return (
@@ -87,29 +87,27 @@ const HasMicrongathia = () => {
               {" "}
               <div>
                 <h1 className="text-default-yellow text-4xl md:text-8xl mb-4 md:mb-8 font-semibold">
-                  Q8
+                  Q10
                 </h1>
                 <div className="text-slate-300 text-2xl md:text-6xl mb-4 md:mb-8 font-semibold">
-                  Do you have micrognathia?
+                  What is your sex?
                 </div>
                 <div className="text-slate-500 text-base md:text-xl mb-4 md:mb-8 font-semibold">
-                  Micrognathia is a condition where the lower jaw is
-                  significantly smaller than usual, potentially affecting dental
-                  alignment and airway openness.{" "}
+                Sex refers to a set of biological attributes in humans and animals. It is primarily associated with physical and physiological features including chromosomes, gene expression, hormone levels and function, and reproductive/sexual anatomy. {" "}
                 </div>
               </div>
               <div className="space-x-4">
                 <button
-                  onClick={() => handleSelection(true)}
-                  className="bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
-                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"                >
-                  Yes
-                </button>
-                <button
                   onClick={() => handleSelection(false)}
                   className="bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
                   transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"                >
-                  No
+                  Male
+                </button>
+                <button
+                  onClick={() => handleSelection(true)}
+                  className="bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
+                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"                >
+                  Female
                 </button>
               </div>
               <button
@@ -127,8 +125,8 @@ const HasMicrongathia = () => {
               exit="exit"
             >
               <motion.img
-                src={microngathiaImage}
-                alt="Micrognathia"
+                src={sex}
+                alt="sex"
                 className="mb-8 max-w-full h-auto"
                 variants={imageVariants}
                 initial="hidden"
@@ -143,4 +141,4 @@ const HasMicrongathia = () => {
   );
 };
 
-export default HasMicrongathia;
+export default Sex;

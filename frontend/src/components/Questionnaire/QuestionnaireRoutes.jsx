@@ -9,6 +9,8 @@ import ESSForm from './ESSForm';
 import HasPosteriorPillarWebbing from './HasPosteriorPillarWebbing';
 import HasRetrongathia from './HasRetrongathia';
 import HasMicrongathia from './HasMicrongathia';
+import HasDiabetes from './HasDiabetes';
+import Sex from './Sex';
 import Result from './Result';
 
 
@@ -25,6 +27,9 @@ const QuestionnaireRoutes = () => {
             <Route path="has-posterior-pillar-webbing" element={<HasPosteriorPillarWebbing />} />
             <Route path="has-retrognathia" element={<HasRetrongathia />} />
             <Route path="has-micrognathia" element={<HasMicrongathia />} />
+            <Route path="has-diabetes" element={<HasDiabetes />} />
+            <Route path="sex" element={<Sex />} />
+ 
             <Route path="result" element={<Result />} />
         </Routes>
     </QuestionnaireProvider>
