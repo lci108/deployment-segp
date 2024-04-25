@@ -1,6 +1,10 @@
 import React, { createContext, useState } from 'react';
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import HasDiabetes from './HasDiabetes';
+=======
+import { useNavigate, useLocation } from "react-router-dom";
+>>>>>>> bbe6b1dcd75f8e4d48032a24e0aa3682c022af4c
 
 export const QuestionnaireContext = createContext();
 
@@ -43,6 +47,8 @@ export const QuestionnaireProvider = ({ children }) => {
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const location = useLocation();
+  
   const validateData = (newData) => {
     let newErrors = {};
 
@@ -101,11 +107,21 @@ export const QuestionnaireProvider = ({ children }) => {
       navigate(`../${link}`);
     };
   }
+
+  const isResultRoute = location.pathname.includes('result');
+  const shouldRenderButtons = !isResultRoute;
+
+
   return (
     <QuestionnaireContext.Provider value={{ formData, updateFormData, errors }}>
+<<<<<<< HEAD
       {Object.values(formData).every(value => value !== null) ? <div className="flex bg-slate-950 py-4 w-full justify-center items-center gap-x-6"></div> : (
         <div className="flex bg-cyan-500 py-4 w-full justify-center items-center gap-x-6 flex-wrap">
           <div className="sm:block hidden absolute w-[590px] h-1 bg-white z-0"></div>
+=======
+        { shouldRenderButtons && (<div className="lg:flex absolute hidden py-4 w-full justify-center items-center gap-x-6 flex-wrap">
+          <div className="sm:block hidden absolute w-[420px] h-1 bg-white z-0"></div>
+>>>>>>> bbe6b1dcd75f8e4d48032a24e0aa3682c022af4c
           {/* Map over the navLinks array */}
           {navLinks.map((navLink, index) => (
             <button key={index} onClick={handleNavClick(navLink.link)} className="rounded-full bg-white w-[40px] h-10 flex items-center justify-center font-bold z-10 my-2">
@@ -116,8 +132,7 @@ export const QuestionnaireProvider = ({ children }) => {
               )}
             </button>
           ))}
-        </div>
-      )}
+        </div>)}
       {children}
     </QuestionnaireContext.Provider>
   );

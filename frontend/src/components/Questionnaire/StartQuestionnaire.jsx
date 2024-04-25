@@ -29,14 +29,12 @@ const StartQuestionnaire = () => {
           <AlertDialogHeader>
             <AlertDialogTitle>Disclaimer alert</AlertDialogTitle>
             <AlertDialogDescription>
-              The Prediction Modal is only for educational purposes and <span className='text-red-500 underline'>should not be used as a substitute for a professional medical diagnosis </span>. 
-              If you have any concerns about your health, please consult a medical professional. For the most accurate result, kindly take a <a className='text-yellow-600 font-semibold underline' href='https://princecourt.com/allied-health-services/sleep-lab-polysomnography#:~:text=Prince%20Court%20is%20one%20of,consultations%20and%20trials%2C%20among%20others.'>polysomnography </a>
-              test at a hospital.
+            Our team would like to emphasize that our prediction result is solely for informational purposes and should not be used as medical evidence or reference. We will not be held accountable for any consequences resulting from errors in the prediction result.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction className='transition hover:scale-105'><Link to="tonsil-size">OK, I understand.</Link></AlertDialogAction>
-            <Link to="/"><AlertDialogCancel>Cancel</AlertDialogCancel></Link>            
+            <AlertDialogAction className='transition hover:scale-105 bg-yellow-300'><Link to="tonsil-size">OK, I understand.</Link></AlertDialogAction>
+            <Link to="/"><AlertDialogCancel className='bg-red-500 text-white'>Cancel</AlertDialogCancel></Link>            
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
