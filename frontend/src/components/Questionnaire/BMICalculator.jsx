@@ -5,11 +5,12 @@ import { QuestionnaireContext } from './QuestionnaireContext';
 const BMICalculator = () => {
     const navigate = useNavigate();
     const { updateFormData } = useContext(QuestionnaireContext);
-    const [weight, setWeight] = useState('');
-    const [height, setHeight] = useState('');
+    const [weight, setWeight] = useState(() => localStorage.getItem('weight') || '');
+    const [height, setHeight] = useState(() => localStorage.getItem('height') || '');
 
-    const handleWeightChange = (e) => setWeight(e.target.value);
-    const handleHeightChange = (e) => setHeight(e.target.value);
+
+    const handleWeightChange = (e) => {setWeight(e.target.value); localStorage.setItem('weight', e.target.value)}
+    const handleHeightChange = (e) => {setHeight(e.target.value); localStorage.setItem('height', e.target.value)}
 
     const calculateBMI = () => {
         if (height && weight) {

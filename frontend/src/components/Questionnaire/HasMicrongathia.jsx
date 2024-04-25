@@ -13,9 +13,11 @@ const HasMicrongathia = () => {
     setIsExiting(true); // Trigger exit animation
     updateFormData({ hasMicrognathia });
     setTimeout(() => {
-      navigate("../has-Diabetes");
+      localStorage.clear(); 
+      navigate("../result");
     }, 500);
   };
+
   const leftDivVariants = {
     hidden: { x: -500, opacity: 0 },
     visible: {

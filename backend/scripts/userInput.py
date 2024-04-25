@@ -77,7 +77,7 @@ try:
     try:
         collect_values(json_data)
         # apply_conversion_rules(all_values)
-        result = np.array([load_rf_pn.predict([excluded_values]), load_sev.predict([excluded_values])])
+        result = np.array([load_pn.predict([excluded_values]), load_sev.predict([excluded_values])])
         result = result.flatten()
         print(json.dumps(result.tolist()))  # Output the result as a JSON string
     except Exception as prediction_error:

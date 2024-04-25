@@ -5,10 +5,9 @@ import posteriorPillarWebbing from "../../assets/posteriorpillarwebbing.png";
 import { QuestionnaireContext } from "./QuestionnaireContext";
 import { motion, AnimatePresence } from "framer-motion";
 
-
 const HasPosteriorPillarWebbing = () => {
   const navigate = useNavigate();
-  const { updateFormData } = useContext(QuestionnaireContext);
+  const { updateFormData, formData  } = useContext(QuestionnaireContext);
   const [isExiting, setIsExiting] = useState(false);
 
   const handleSelection = (hasWebbing) => {
@@ -79,7 +78,7 @@ const HasPosteriorPillarWebbing = () => {
       <AnimatePresence onExitComplete={() => setIsExiting(false)}>
         {!isExiting && (
           <div className="grid grid-cols-1 md:grid-cols-3 w-full sm:h-screen items-center bg-cyan-500">
-          <motion.div
+            <motion.div
               className="col-span-2 grid grid-row-2 items-center p-4 md:p-20 min-h-[50vh]  "
               variants={leftDivVariants}
               initial="hidden"
@@ -87,7 +86,7 @@ const HasPosteriorPillarWebbing = () => {
               exit="exit"
             >
               <div>
-              <h1 className="text-default-yellow text-4xl md:text-8xl mb-4 md:mb-8 font-semibold">
+                <h1 className="text-default-yellow text-4xl md:text-8xl mb-4 md:mb-8 font-semibold">
                   Q6
                 </h1>
                 <div className="text-slate-300 text-2xl md:text-6xl mb-4 md:mb-8 font-semibold">
@@ -105,29 +104,29 @@ const HasPosteriorPillarWebbing = () => {
               <div className="flex flex-wrap justify-start space-x-2 md:space-x-4">
                 <button
                   onClick={() => handleSelection(true)}
-                  className="bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
-                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"                >
+                  className={`bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
+                    transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${"true" === String(formData.hasPosteriorPillarWebbing)  ? 'border-black border-4' : ''} `}
+                >
                   Yes
                 </button>
                 <button
                   onClick={() => handleSelection(false)}
-                  className="bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
-                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"                >
+                  className={`bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
+                    transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${"false" === String(formData.hasPosteriorPillarWebbing)  ? 'border-black border-4' : ''}`}
+                >
                   No
                 </button>
-                
               </div>
               <button
-                      onClick={handleBackClick}
-                      className="px-2 py-2 rounded mt-11 bg-gray-200 text-gray-800 font-semibold hover:bg-gray-300"
-                    >
-                      Back
+                onClick={handleBackClick}
+                className="px-2 py-2 rounded mt-11 bg-gray-200 text-gray-800 font-semibold hover:bg-gray-300"
+              >
+                Back
               </button>
-              
             </motion.div>
             <motion.div
-                    className="flex justify-center items-center w-full h-full  bg-slate-950 min-h-[50vh] "
-                    variants={rightDivVariants}
+              className="flex justify-center items-center w-full h-full  bg-slate-950 min-h-[50vh] "
+              variants={rightDivVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -147,7 +146,6 @@ const HasPosteriorPillarWebbing = () => {
                 alt="Posterior Pillar Webbing"
                 className="w-1/2 max-w-md h-auto"
                 variants={imageVariants}
-
                 initial="hidden"
                 animate="visible"
                 exit="exit"

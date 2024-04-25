@@ -6,12 +6,12 @@ import { QuestionnaireContext } from "./QuestionnaireContext";
 
 const HasRetrognathia = () => {
   const navigate = useNavigate();
-  const { updateFormData } = useContext(QuestionnaireContext);
+  const { updateFormData, formData } = useContext(QuestionnaireContext);
   const [isExiting, setIsExiting] = useState(false);
 
-  const handleSelection = (hasRetrognathia) => {
+  const handleSelection = (hasRetro) => {
     setIsExiting(true);
-    updateFormData({ hasRetrognathia });
+    updateFormData({ hasRetrognathia : hasRetro});
     setTimeout(() => {
       navigate("../has-micrognathia");
     }, 500); // Adjust based on exit animation duration
@@ -117,13 +117,13 @@ const HasRetrognathia = () => {
               <div className="space-x-4">
                 <button
                   onClick={() => handleSelection(true)}
-                  className="bg-default-yellow text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"
+                  className={`bg-default-yellow text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${"true" === String(formData.hasRetrognathia)  ? 'border-cyan-400 border-4' : ''} `}
                 >
                   Yes
                 </button>
                 <button
                   onClick={() => handleSelection(false)}
-                  className="bg-default-yellow text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"
+                  className={`bg-default-yellow text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${"false" === String(formData.hasRetrognathia)  ? 'border-cyan-400 border-4' : ''} `}
                 >
                   No
                 </button>

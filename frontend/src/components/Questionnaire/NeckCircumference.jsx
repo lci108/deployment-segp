@@ -12,6 +12,7 @@ const NeckCircumference = () => {
   const [isExiting, setIsExiting] = useState(false);
 
   const handleNeckCircumferenceClick = (value) => {
+
     setIsExiting(true); // Trigger exit animation
     updateFormData({ isNeckCircumferenceLargerThan40: value === "true" });
     setTimeout(() => {
@@ -105,10 +106,10 @@ const NeckCircumference = () => {
                   <button
                     key={value}
                     className={`bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
-                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${value === formData.isNeckCircumferenceLargerThan40 ? 'border-black border-4' : ''}`}
+                    transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 file:${value === String(formData.isNeckCircumferenceLargerThan40) ? 'border-black border-4' : ''}`}
                     onClick={() => handleNeckCircumferenceClick(value)}
                   >
-                    {value}
+             {value.charAt(0).toUpperCase() + value.slice(1)}
                   </button>
                 ))}
               </div>
