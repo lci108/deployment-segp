@@ -24,7 +24,10 @@ const Footer = () => {
         <div className="col-span-1 flex flex-col gap-y-4">
             <p className="font-black text-xl">Our Socials</p>
             <div className="icons-container flex text-white gap-4 items-center">
+            <a href="https://www.instagram.com/group_v_segp/" target="_blank">
+
                     <PiInstagramLogoFill className='text-3xl'/>
+                    </a>
                     <ImFacebook2 className='text-2xl'/>
             </div>
         </div>
