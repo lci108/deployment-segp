@@ -14,6 +14,7 @@ const Result = () => {
 
   useEffect(() => {
     const getPrediction = async () => {
+      localStorage.clear(); 
       setLoading(true);
       setError("");
       console.log('Form Data:', formData);  // Log the formData to the console
