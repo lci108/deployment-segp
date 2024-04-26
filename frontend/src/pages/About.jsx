@@ -142,9 +142,9 @@ const About = () => {
             </div>
             <div className="p-4 md:pb-28 md:pr-28">
               <div className="text-center md:text-left text-2xl md:text-4xl lg:text-5xl text-default-blue-700 font-medium tracking-wide">
-                RM2.1k-RM42k
+                RM250-RM800
                 <span className="block md:inline text-lg md:text-lg lg:text-xl text-slate-950 font-normal tracking-tight">
-                  The savings per patient for hospitals with our online OSA
+                  The savings per patient with our online OSA
                   assessment
                 </span>
               </div>

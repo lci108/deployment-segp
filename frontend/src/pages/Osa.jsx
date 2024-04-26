@@ -176,7 +176,7 @@ const Osa = () => {
                     Wait Time
                   </p>
                   <p className="font-medium text-base lg:text-lg ">
-                    Long wait times to schedule a sleep study, adefs.
+                    Long wait times to schedule a sleep study.
                   </p>
                 </div>
               </div>
