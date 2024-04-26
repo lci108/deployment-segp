@@ -118,10 +118,10 @@ const ESSForm = () => {
                     </button>
                     
                 </form>
-                <button                       onClick={handleBackClick}
- className="w-full bg-slate-300 text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 mt-6">
-                        Back
-                    </button>
+                <button onClick={handleBackClick}
+                        className="w-full bg-slate-300 text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 mt-6">
+                    Back
+                </button>
             </div>
         </div>
     );

@@ -101,8 +101,8 @@ const HasMicrongathia = () => {
               <div className="absolute h-[100vh] w-[100vw] bg-green-500 z-20 flex items-center justify-center">
               <button 
                onClick={() => goToResultPage()}
-               className="bg-blue-500 text-white font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
-               transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 -mb-4">Get prediction</button>       
+               className="bg-blue-500 text-white font-bold rounded py-1 px-2 md:py-2 md:px-8 transition duration-300 ease-in-out
+               transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 text-3xl">Get prediction</button>       
               </div>
             )
             }
