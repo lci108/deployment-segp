@@ -17,6 +17,8 @@ export const QuestionnaireProvider = ({ children }) => {
 
   console.log(formData);
 
+
+
   // Define an array of objects containing links and labels
   const navLinks = [
     { link: 'tonsil-size', label: '1', key: 'tonsilSize'},
