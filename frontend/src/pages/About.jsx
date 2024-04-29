@@ -60,7 +60,6 @@ const About = () => {
           <svg
             viewBox="0 0 1087 1671"
             fill="none"
-            preserveAspectRatio="xMidYMaxY meet"
             style={{
               position: "absolute",
               width: "73%",
@@ -86,9 +85,9 @@ const About = () => {
                 width="1086.44"
                 height="1669.6"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"

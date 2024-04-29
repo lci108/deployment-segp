@@ -11,7 +11,7 @@ import { Fill, Stroke, Style } from 'ol/style';
 import malaysia from '../components/data/malaysia.json'; 
 import SubmissionForm from './SubmissionForm';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from './firebase-config';
+import { db } from '../../../backend/firebase-config';
 
 const MalaysiaMap = () => {
   const mapRef = useRef(null);

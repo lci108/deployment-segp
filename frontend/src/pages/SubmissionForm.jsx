@@ -1,6 +1,6 @@
 // src/SubmissionForm.js
 import React, { useState } from 'react';
-import { db } from './firebase-config'; 
+import { db } from '../../../backend/firebase-config'; 
 import { collection, addDoc } from "firebase/firestore";
 
 

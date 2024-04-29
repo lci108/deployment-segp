@@ -14,6 +14,8 @@ import rightImg from "../assets/rightImg.png";
 import MalaysiaMap from "./MalaysiaMap";
 
 const Osa = () => {
+  console.log(import.meta.env);
+
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
 
@@ -166,7 +168,7 @@ const Osa = () => {
             </div>
             <div className="flex flex-col items-center justify-start gap-10">
               <div className="flex gap-2 items-start w-full">
-                <div class="w-16 lg:w-20 flex items-center justify-end">
+                <div className="w-16 lg:w-20 flex items-center justify-end">
                   <p className="font-mono font-medium text-7xl lg:text-8xl">
                     1
                   </p>
@@ -181,12 +183,12 @@ const Osa = () => {
                 </div>
               </div>
               <div className="flex gap-2 items-center w-full">
-                <div class="w-16 lg:w-20 flex justify-end items-center">
+                <div className="w-16 lg:w-20 flex justify-end items-center">
                   <p className="font-mono font-medium text-7xl lg:text-8xl">
                     2
                   </p>
                 </div>
-                <div class="flex-grow">
+                <div className="flex-grow">
                   <p className="font-semibold text-xl lg:text-2xl pb-2 text-default-blue-500">
                     High Cost
                   </p>
@@ -196,7 +198,7 @@ const Osa = () => {
                 </div>
               </div>
               <div className="flex gap-2 items-center w-full">
-                <div class="w-16 lg:w-20 flex justify-end items-center">
+                <div className="w-16 lg:w-20 flex justify-end items-center">
                   <p className="font-mono font-medium text-7xl lg:text-8xl">
                     3
                   </p>
@@ -212,7 +214,7 @@ const Osa = () => {
                 </div>
               </div>
               <div className="flex gap-2 items-center w-full">
-                <div class="w-16 lg:w-20 flex justify-end items-center">
+                <div className="w-16 lg:w-20 flex justify-end items-center">
                   <p className="font-mono font-medium text-7xl lg:text-8xl">
                     4
                   </p>
