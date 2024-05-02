@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { QuestionnaireContext } from './QuestionnaireContext';
-import { Link } from 'react-router-dom';
 
 const BMICalculator = () => {
     const navigate = useNavigate();

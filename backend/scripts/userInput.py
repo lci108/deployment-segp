@@ -53,26 +53,6 @@ try:
             all_values.append(data)  # Append all scalar values to all_values
             
 
-    # def apply_conversion_rules(data):
-    #         # ts>=2 at indices[0]
-    #     if data[0] < 2:
-    #         data[0] = 0
-    #     else:
-    #         data[0] = 1
-
-    #         # mp>=2 at indices[1]
-    #     if data[1] < 2:
-    #        data[1] = 0
-    #     else:
-    #        data[1] = 1
-
-    #         # ess>=6 at indices[3]
-    #     if data[3] < 6:
-    #         data[3] = 0
-    #     else:
-    #         data[3] = 1
-
-
     # Run prediction with error handling
     try:
         collect_values(json_data)

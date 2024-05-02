@@ -1,4 +1,3 @@
-// src/SubmissionForm.js
 import React, { useState } from 'react';
 import { db } from '../../../backend/firebase-config'; 
 import { collection, addDoc } from "firebase/firestore";
@@ -70,7 +69,6 @@ const SubmissionForm = () => {
           <option value="Perak">Perak</option>
           <option value="Penang">Penang</option>
           <option value="Labuan">Labuan</option>
-        {/* Add other states here */}
       </select>
       <div>
           <input type="checkbox" id="consentCheckbox" checked={isConsentGiven} onChange={handleConsentChange} />

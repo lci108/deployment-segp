@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import "tailwindcss/tailwind.css"; // Ensure Tailwind CSS is imported
+import "tailwindcss/tailwind.css";
 import osaImg from "../assets/osa_man.png";
 import snoreImg from "../assets/snore.png";
 import sleepImg from "../assets/sleep.png";
