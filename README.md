@@ -16,7 +16,9 @@ Make sure you have the following installed on your system:
 
 2. **Node.js and npm**: We recommend using Node Version Manager (nvm) to manage Node.js installations. You can install nvm by following the instructions at [github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm#installing-and-updating). Once nvm is installed, you can install the latest version of Node.js by running:
 
-```nvm install node```
+```
+nvm install node
+```
 
 ### Running the Project
 
@@ -24,34 +26,52 @@ Make sure you have the following installed on your system:
 
 
 2. **Navigate to the Frontend Folder**:
-```cd frontend```
+```
+cd frontend
+```
 
 3. **Install Frontend Dependencies**:
 
-```npm install```
+```
+npm install
+```
 
 Wait for the installation of dependencies to complete.
 
 4. **Navigate to the Root Folder**:
 
-```cd ..```
+```
+cd ..
+```
 
 5. **Navigate to the Backend Folder**:
 
-```cd backend```
+```
+cd backend
+```
 
 6. **Install Backend Dependencies**:
 
-```npm install```
+```
+npm install
+```
+
 7. **Install Python Dependencies**:
 
 If you have pip3, run:
-```cd scripts```
-``` pip3 install -r requirements.txt```
+```
+   cd scripts
+   pip3 install -r requirements.txt
+```
+
 If you have pip, run:
-```pip install -r requirements.txt```
+
+```
+pip install -r requirements.txt
+```
 
 if you have python3, u will have to modify server.js:
+
 ```   
      const pythonProcess = spawn('python', ['scripts/userInput.py', JSON.stringify(req.body)]);
       // replace 'python' with 'python3' if using python3, vice versa
