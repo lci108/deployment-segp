@@ -5,11 +5,13 @@ import { QuestionnaireContext } from './QuestionnaireContext';
 const BMICalculator = () => {
     const navigate = useNavigate();
     const { updateFormData } = useContext(QuestionnaireContext);
-    const [weight, setWeight] = useState('');
-    const [height, setHeight] = useState('');
+    const [weight, setWeight] = useState(() => localStorage.getItem('weight') || '');
+    const [height, setHeight] = useState(() => localStorage.getItem('height') || '');
+    const [showPopUp, setShowPopUp] = useState(false);
 
-    const handleWeightChange = (e) => setWeight(e.target.value);
-    const handleHeightChange = (e) => setHeight(e.target.value);
+
+    const handleWeightChange = (e) => {setWeight(e.target.value); localStorage.setItem('weight', e.target.value)}
+    const handleHeightChange = (e) => {setHeight(e.target.value); localStorage.setItem('height', e.target.value)}
 
     const calculateBMI = () => {
         if (height && weight) {
@@ -22,8 +24,17 @@ const BMICalculator = () => {
     const handleSubmit = () => {
         const bmi = calculateBMI();
         const isMorbidlyObese = bmi > 40;
-        updateFormData({ isMorbidlyObese });
-        navigate('../has-posterior-pillar-webbing');
+
+        if(weight !== '' && height !== '') {
+            updateFormData({ isMorbidlyObese });
+            navigate('../has-posterior-pillar-webbing');
+        }
+
+        if(weight === '' || height === '') {
+            setShowPopUp(true);
+            return
+        }
+        
     };
     const handleBackClick = () => {
         navigate("../ess");
@@ -31,6 +42,14 @@ const BMICalculator = () => {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen w-screen bg-slate-950 text-slate-300 p-4">
+            {showPopUp && (
+                <><div className="absolute z-20 w-full h-full flex justify-center items-center bg-black/80">
+                <div className="bg-white rounded-xl px-12 py-4 absolute h-[200px] flex flex-col justify-center items-center">
+                  <p className="text-xl text-black">Please fill in the empty fields</p>
+                    <button className="px-4 py-2 w-64 mt-4 border-black bg-yellow-300 text-center text-black rounded-lg" onClick={() => setShowPopUp(false)}>OK</button>
+                </div>
+              </div></>
+            )}
             <p className="text-5xl mb-8">BMI Calculator</p>
             <input
                 type="number"

@@ -12,6 +12,7 @@ const MallampatiScore = () => {
   const [isExiting, setIsExiting] = useState(false);
 
   const handleMPScoreClick = (score) => {
+
     setIsExiting(true);
     updateFormData({ MP: score });
 
@@ -143,7 +144,7 @@ const MallampatiScore = () => {
                 {MPScores.map((score) => (
                   <button
                     key={score}
-                    className={`bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
+                    className={`bg-default-yellow text-black font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
                   transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${score === formData.MP ? 'border-cyan-400 border-4' : ''}`}
                     onClick={() => handleMPScoreClick(score)}
                   >

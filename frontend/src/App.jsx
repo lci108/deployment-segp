@@ -8,10 +8,13 @@ import Osa from './pages/Osa';
 import StartQuestionnaire from './components/Questionnaire/StartQuestionnaire';
 import QuestionnaireLayout from './components/Questionnaire/QuestionnaireLayout';
 import QuestionnaireRoutes from './components/Questionnaire/QuestionnaireRoutes';
-import MalaysiaMap from './pages/MalaysiaMap';
 
 const App = () => {
   return (
+
+    <>
+    <head><title>OSA Prediction</title></head>
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -26,6 +29,8 @@ const App = () => {
         </Route>
       </Routes>
     </BrowserRouter>
+    </>
+ 
   );
 };
 

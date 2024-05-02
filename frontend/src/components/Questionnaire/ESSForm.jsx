@@ -21,28 +21,34 @@ const ESSForm = () => {
     const navigate = useNavigate();
     const { updateFormData } = useContext(QuestionnaireContext);
     const {formData} = useContext(QuestionnaireContext);
-    const [essScores, setEssScores] = useState({
-        reading: 0,
-        tv: 0,
-        sittingInactive: 0,
-        passenger: 0,
-        lyingDown: 0,
-        talkingToSomeone: 0,
-        afterLunch: 0,
-        inTraffic: 0
+    const [essScores, setEssScores] = useState(() => {
+        const savedScores = localStorage.getItem('scores');
+        return savedScores ? JSON.parse(savedScores) : {
+            reading: 0,
+            tv: 0,
+            sittingInactive: 0,
+            passenger: 0,
+            lyingDown: 0,
+            talkingToSomeone: 0,
+            afterLunch: 0,
+            inTraffic: 0
+        };
     });
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        const newValue = Math.min(3, Math.max(0, parseInt(value)));
-        setEssScores({ ...essScores, [name]: newValue });
-        localStorage.setItem('scores', JSON.stringify(essScores));
+        const newValue = Math.min(3, Math.max(0, parseInt(value, 10) || 0)); // Adding || 0 to handle NaN
+        const newScores = { ...essScores, [name]: newValue };
+        setEssScores(newScores);
+        localStorage.setItem('scores', JSON.stringify(newScores));
     };
+    
 
     const handleSubmit = () => {
         setEssScores({ ...essScores});
         const totalScore = Object.values(essScores).reduce((acc, curr) => acc + curr, 0);
         updateFormData({ ESS: totalScore });
+        localStorage.setItem('scores', JSON.stringify(essScores));
         navigate('../bmi');
     };
     const handleBackClick = () => {
@@ -112,10 +118,10 @@ const ESSForm = () => {
                     </button>
                     
                 </form>
-                <button                       onClick={handleBackClick}
- className="w-full bg-slate-300 text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 mt-6">
-                        Back
-                    </button>
+                <button onClick={handleBackClick}
+                        className="w-full bg-slate-300 text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 mt-6">
+                    Back
+                </button>
             </div>
         </div>
     );

@@ -1,19 +1,19 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import retrognathiaImage from "../../assets/retrognathia.jpeg";
+import diabetes from "../../assets/diabetes.png";
 import { QuestionnaireContext } from "./QuestionnaireContext";
 
-const HasRetrognathia = () => {
+const HasDiabetes = () => {
   const navigate = useNavigate();
-  const { updateFormData, formData } = useContext(QuestionnaireContext);
+  const { updateFormData } = useContext(QuestionnaireContext);
   const [isExiting, setIsExiting] = useState(false);
 
-  const handleSelection = (hasRetro) => {
+  const handleSelection = (hasDiabetes) => {
     setIsExiting(true);
-    updateFormData({ hasRetrognathia : hasRetro});
+    updateFormData({ hasDiabetes });
     setTimeout(() => {
-      navigate("../has-micrognathia");
+      navigate("../sex");
     }, 500); // Adjust based on exit animation duration
   };
   const rightDivVariants = {
@@ -64,7 +64,7 @@ const HasRetrognathia = () => {
     },
   };
   const handleBackClick = () => {
-    navigate("../has-posterior-pillar-webbing");
+    navigate("../has-micronagthia");
   };
 
 
@@ -82,8 +82,8 @@ const HasRetrognathia = () => {
             >
               {" "}
               <motion.img
-                src={retrognathiaImage}
-                alt="Retrognathia"
+                src={diabetes}
+                alt="diabetes"
                 className="mb-8 max-w-full h-auto rounded"
                 style={{ maxHeight: "40vh" }}
                 variants={imageVariants}
@@ -102,28 +102,25 @@ const HasRetrognathia = () => {
               {" "}
               <div>
               <h1 className="text-default-yellow text-3xl md:text-8xl mb-4 md:mb-8 font-semibold">
-                  Q7
+                  Q9
                 </h1>
                 <div className="text-slate-300 text-lg md:text-6xl mb-4 md:mb-8">
-                  Do you have retrognathia?
+                  Do you have Diabetes Mellitus?
                 </div>
                 <div className="text-slate-500 text-sm md:text-xl">
-                  Retrognathia is a condition where the lower jaw is set back
-                  significantly compared to the upper jaw, potentially affecting
-                  airway space and contributing to breathing difficulties during
-                  sleep.
+                Diabetes is a chronic, metabolic disease characterized by elevated levels of blood glucose (or blood sugar), which leads over time to serious damage to the heart, blood vessels, eyes, kidneys and nerves. The most common is type 2 diabetes, usually in adults, which occurs when the body becomes resistant to insulin or doesn't make enough insulin.
                 </div>
               </div>
               <div className="space-x-4">
                 <button
                   onClick={() => handleSelection(true)}
-                  className={`bg-default-yellow text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${"true" === String(formData.hasRetrognathia)  ? 'border-cyan-400 border-4' : ''} `}
+                  className="bg-default-yellow text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"
                 >
                   Yes
                 </button>
                 <button
                   onClick={() => handleSelection(false)}
-                  className={`bg-default-yellow text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${"false" === String(formData.hasRetrognathia)  ? 'border-cyan-400 border-4' : ''} `}
+                  className="bg-default-yellow text-slate-950 font-bold rounded py-2 px-4 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"
                 >
                   No
                 </button>
@@ -142,4 +139,4 @@ const HasRetrognathia = () => {
   );
 };
 
-export default HasRetrognathia;
+export default HasDiabetes;

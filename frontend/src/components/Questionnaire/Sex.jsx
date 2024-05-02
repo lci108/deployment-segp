@@ -1,22 +1,19 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import neck from "../../assets/neckcircumference.png";
+import sex from "../../assets/sex.png";
 import { QuestionnaireContext } from "./QuestionnaireContext";
 import { motion, AnimatePresence } from "framer-motion";
 
-const NeckCircumference = () => {
+const Sex = () => {
   const navigate = useNavigate();
   const { updateFormData } = useContext(QuestionnaireContext);
-  const { formData } = useContext(QuestionnaireContext);
-  const isNeckCircumferenceLargerThan40 = ["true", "false"];
   const [isExiting, setIsExiting] = useState(false);
 
-  const handleNeckCircumferenceClick = (value) => {
-
+  const handleSelection = (Sex) => {
     setIsExiting(true); // Trigger exit animation
-    updateFormData({ isNeckCircumferenceLargerThan40: value === "true" });
+    updateFormData({Sex});
     setTimeout(() => {
-      navigate("../ess");
+      navigate("../result");
     }, 500);
   };
   const leftDivVariants = {
@@ -72,46 +69,46 @@ const NeckCircumference = () => {
     },
   };
   const handleBackClick = () => {
-    navigate("../mallampati-score"); 
+    navigate("../has-Diabetes");
   };
+
   return (
     <>
       <AnimatePresence onExitComplete={() => setIsExiting(false)}>
         {!isExiting && (
           <div className="grid grid-cols-1 md:grid-cols-3 w-full sm:h-screen items-center bg-cyan-500">
-          <motion.div
+            <motion.div
               className="col-span-2 grid grid-row-2 items-center p-4 md:p-20 min-h-[50vh]"
               variants={leftDivVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
             >
+              {" "}
               <div>
-              <h1 className="text-default-yellow text-4xl md:text-8xl mb-4 md:mb-8 font-semibold">
-                  Q3
+                <h1 className="text-default-yellow text-4xl md:text-8xl mb-4 md:mb-8 font-semibold">
+                  Q10
                 </h1>
                 <div className="text-slate-300 text-2xl md:text-6xl mb-4 md:mb-8 font-semibold">
-                  Does your neck circumference exceed 40 centimeters?
+                  What is your sex?
                 </div>
                 <div className="text-slate-500 text-base md:text-xl mb-4 md:mb-8 font-semibold">
-                  Neck circumference is an important metric in evaluating the
-                  risk for Obstructive Sleep Apnea (OSA). A measurement
-                  exceeding 40 centimeters can indicate a higher risk of OSA due
-                  to the potential for increased soft tissue in the neck area,
-                  which can obstruct the airway during sleep.
+                Sex refers to a set of biological attributes in humans and animals. It is primarily associated with physical and physiological features including chromosomes, gene expression, hormone levels and function, and reproductive/sexual anatomy. {" "}
                 </div>
               </div>
-              <div className="flex flex-wrap justify-start space-x-2 md:space-x-4">
-                {isNeckCircumferenceLargerThan40.map((value) => (
-                  <button
-                    key={value}
-                    className={`bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
-                    transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50 ${value === String(formData.isNeckCircumferenceLargerThan40) ? 'border-black border-4' : ''}`}
-                    onClick={() => handleNeckCircumferenceClick(value)}
-                  >
-             {value.charAt(0).toUpperCase() + value.slice(1)}
-                  </button>
-                ))}
+              <div className="space-x-4">
+                <button
+                  onClick={() => handleSelection(false)}
+                  className="bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
+                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"                >
+                  Male
+                </button>
+                <button
+                  onClick={() => handleSelection(true)}
+                  className="bg-default-yellow text-cyan-500 font-bold rounded py-1 px-2 md:py-2 md:px-4 transition duration-300 ease-in-out
+                  transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-default-blue-500 focus:ring-opacity-50"                >
+                  Female
+                </button>
               </div>
               <button
                       onClick={handleBackClick}
@@ -121,16 +118,16 @@ const NeckCircumference = () => {
               </button>
             </motion.div>
             <motion.div
-                    className="flex justify-center items-center w-full h-full bg-slate-950 min-h-[50vh]"
-                    variants={rightDivVariants}
+              className="flex justify-center items-center w-full h-full bg-slate-950 min-h-[50vh]"
+              variants={rightDivVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
             >
               <motion.img
-                src={neck}
-                alt="Neck Circumference"
-                className="mb-8 max-w-full h-auto rounded"
+                src={sex}
+                alt="sex"
+                className="mb-8 max-w-full h-auto"
                 variants={imageVariants}
                 initial="hidden"
                 animate="visible"
@@ -144,4 +141,4 @@ const NeckCircumference = () => {
   );
 };
 
-export default NeckCircumference;
+export default Sex;
