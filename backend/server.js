@@ -8,7 +8,8 @@ app.use(bodyParser.json());
 app.post('/predict', (req, res) => {
     const jsonData = JSON.stringify(req.body);
     console.log('Stringified JSON data:', jsonData);
-    const pythonProcess = spawn('python', ['scripts/userInput.py', JSON.stringify(req.body)]);
+    //if device dont have python3 installed , then change python3 -> python
+    const pythonProcess = spawn('python3', ['scripts/userInput.py', JSON.stringify(req.body)]);
     console.log('Python script started');
     
     let pythonData = '';
