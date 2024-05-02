@@ -14,10 +14,8 @@ try:
 
     # Load models with error handling
     try:
-        pn_model_path = os.path.join(dir_path, './models/model_pn.sav')
-        sev_model_path = os.path.join(dir_path, './models/model_sev.sav')
-        rf_pn_model_path = os.path.join(dir_path, './models/model_rf_pn.sav')
-        load_rf_pn = joblib.load(rf_pn_model_path)
+        pn_model_path = os.path.join(dir_path, './models/random-forest_sev.sav')
+        sev_model_path = os.path.join(dir_path, './models/random-forest_pn.sav')
         load_pn = joblib.load(pn_model_path)
         load_sev = joblib.load(sev_model_path)
     except FileNotFoundError as fnf_error:
